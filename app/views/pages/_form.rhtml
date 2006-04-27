@@ -1,0 +1,25 @@
+<%= error_messages_for 'page' %>
+
+<!--[form:page]-->
+<p><label for="page_weight">Weight</label><br/>
+<%= text_field 'page', 'weight'  %></p>
+
+<p><label for="page_title">Title</label><br/>
+<%= text_field 'page', 'title'  %></p>
+
+<p><label for="page_navititle">Navititle</label><br/>
+<%= text_field 'page', 'navititle'  %></p>
+
+<p><label for="page_starting_at">Starting at</label><br/>
+<%= datetime_select 'page', 'starting_at'  %></p>
+
+<p><label for="page_ending_at">Ending at</label><br/>
+<%= datetime_select 'page', 'ending_at'  %></p>
+
+<p><label for="page_status">Status</label><br/>
+<%= text_field 'page', 'status'  %></p>
+
+<%= hidden_field 'page', 'parent_id' %>
+
+<!--[eoform:page]-->
+

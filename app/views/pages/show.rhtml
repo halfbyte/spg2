@@ -1,0 +1,12 @@
+<div id="metadata">
+<h1>Metadaten f. <%= h @page.title%></h1>
+<p><b>Navigations-Titel:</b> <%=h @page.navititle %></p>
+<p><b>Freigabe von</b> <%= @page.starting_at %> <b>bis</b> <%= @page.ending_at %></p>
+<p><b>Erstellet am</b> <%= @page.created_at %>, <b>letzte &Auml;nderung am</b> <%= @page.updated_at%></p>
+<p><b>Letztes statisches Rendern:</b> <%= @page.rendered_at %></p>
+<p><b>Status:</b> <%= @page.status %></p>
+
+
+
+<p><%= link_to (image_tag('pencil.png', :border => '0') + 'Edit Metadata'), :action => 'edit', :id => @page %></p>
+</div>

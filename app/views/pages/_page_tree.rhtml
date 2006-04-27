@@ -1,0 +1,24 @@
+
+<% for page in @sidebar_pages %>
+    <li>[<%=page.weight%>] <%=link_to h(page.navititle), :controller => 'pages', :action => 'show', :id => page %>
+        <% if page.children.size > 0
+            @sidebar_pages = page.children
+        %>  <ul>
+            <%= render :partial => 'pages/page_tree' %>
+            </ul>
+        <% else %>
+        <ul>
+            <li><%= link_to image_tag('page_add.png', :border => '0'), :controller => 'pages', :action => 'new', :parent => page %></li>
+        </ul>
+        <% end %>
+    </li>
+    <% 
+        if page.parent.nil? 
+           parent_id = -1
+        else
+           parent_id = page.parent.id
+        end
+    %>
+    
+<% end %>
+<li><%= link_to image_tag('page_add.png', :border => '0'), :controller => 'pages', :action => 'new', :parent => parent_id %></li>

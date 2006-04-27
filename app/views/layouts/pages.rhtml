@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>Pages: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+<div id="head" style="border-bottom:5px solid red;background:#ffff88;padding:5px;text-align:right;">
+Rotz-Generator 1.0
+</div>
+<div style="width:300px;float:left;background-color:#eee;" id="pageList">
+    <%= render :partial => 'pages/list_component'%>
+</div>
+<div style="margin-left:320px;">
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= @content_for_layout %>
+</div>
+<div style="clear:both;border-top:5px solid red" id="footer">
+&copy; jan.krutisch.de
+</div>
+</body>
+</html>
