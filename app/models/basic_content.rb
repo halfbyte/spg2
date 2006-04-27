@@ -1,0 +1,2 @@
+class BasicContent < Content
+end

@@ -10,3 +10,12 @@
 
 <p><%= link_to (image_tag('pencil.png', :border => '0') + 'Edit Metadata'), :action => 'edit', :id => @page %></p>
 </div>
+
+<%for @content in @contents %>
+<div class="contentBlock">
+    <% @partial = "previews/"+(@content.class.name.downcase).to_s%>
+    <%= render :partial => @partial   %>
+    <%= link_to (image_tag('pencil.png', :border => '0') + 'Edit this content element'),:controller => 'contents', :action => 'edit', :id => @content %>
+</div>
+<% end %>
+<p>Neuer Content: <%=start_form_tag :controller => 'contents', :action => 'new', :id => @page %><select size="1" name="content_type" id="content_type"><%= options_for_select Content.implementations %></select><%=submit_tag 'Add'%><%=end_form_tag%></p>

@@ -1,0 +1,7 @@
+<h1>Add new Content [<%=@content.class.name%>]to page <%=@page.title%></h1>
+
+<%=start_form_tag :action => 'create', :id => @page%>
+    <%=render :partial => @content[:type].downcase %>
+
+<%=submit_tag 'Create' %>
+<%=end_form_tag %>

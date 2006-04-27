@@ -16,6 +16,7 @@ class PagesController < ApplicationController
  
   def show
     @page = Page.find(params[:id])
+    @contents = @page.contents
   end
 
   def new
