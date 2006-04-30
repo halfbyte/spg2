@@ -1,3 +1,2 @@
 <h2><%=h @content.title %></h2>
-<p><%=h @content.body %></p>
-<p>[basiccontent]</p>
+<p><%=simple_format(@content.body) %></p>

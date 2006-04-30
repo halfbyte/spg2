@@ -12,13 +12,14 @@
         </ul>
         <% end %>
     </li>
-    <% 
-        if page.parent.nil? 
+    
+    
+<% end %>
+<% 
+        if page.nil? or page.parent.nil? 
            parent_id = -1
         else
            parent_id = page.parent.id
         end
     %>
-    
-<% end %>
 <li><%= link_to image_tag('page_add.png', :border => '0'), :controller => 'pages', :action => 'new', :parent => parent_id %></li>

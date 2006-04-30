@@ -16,7 +16,7 @@ class PagesController < ApplicationController
  
   def show
     @page = Page.find(params[:id])
-    @contents = @page.contents
+    @contents = @page.contents.find(:all, :order => 'position')
   end
 
   def new
@@ -34,7 +34,7 @@ class PagesController < ApplicationController
     @page = Page.new(params[:page])
     if @page.save
       flash[:notice] = 'Page was successfully created.'
-      redirect_to :action => 'list'
+      redirect_to :action => 'show', :id => @page
     else
       render :action => 'new'
     end

@@ -9,6 +9,20 @@ def new
   @content.page = @page
 end
 
+def up
+  @content = Content.find(params[:id])
+  @content.move_higher
+  flash[:notice] = "Content upped"
+  redirect_to :controller => 'pages', :action => 'show', :id => @content.page  
+end
+
+def down
+  @content = Content.find(params[:id])
+  @content.move_lower
+  flash[:notice] = "Content downed"
+  redirect_to :controller => 'pages', :action => 'show', :id => @content.page  
+end
+
 def create
   @ct = params[:content_type]
   @content = eval("#{@ct}").new(params[:content])
